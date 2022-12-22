@@ -9,6 +9,7 @@ import {
   EmbedBuilder,
   Client,
   PermissionsString,
+  Collection,
 } from "discord.js";
 import mongoose from "mongoose";
 import DartCommands from "./src";
@@ -77,4 +78,14 @@ export interface Settings {
     dbOptions?: mongoose.ConnectOptions;
   };
   languageSettings?: Language;
+}
+
+export default class {
+  constructor(settings: Settings);
+  public get commands(): Collection<string, Command>;
+  public get settings(): Settings;
+  public get cache(): {
+    commands: Collection<string, Command>;
+  };
+  public get lang(): Language;
 }

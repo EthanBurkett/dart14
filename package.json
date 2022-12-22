@@ -13,5 +13,6 @@
     "discord.js": "^14.7.1",
     "mongoose": "^6.8.1",
     "tsconfig.json": "^1.0.11"
-  }
+  },
+  "repository": "https://www.github.com/ethanburkett/dart14"
 }

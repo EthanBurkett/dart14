@@ -5,6 +5,7 @@ import {
   Collection,
 } from "discord.js";
 import fs from "fs";
+import mongoose from "mongoose";
 import p from "path";
 import DartCommands, { Command, Settings } from "../";
 
@@ -74,6 +75,12 @@ export default class CommandLoader {
         this._client.error(`Command "${file.name[0]}" does not have a name!`);
         process.exit(0);
       }
+
+      if (
+        command.names[0].includes("prefix") &&
+        mongoose.connection.readyState != 1
+      )
+        return;
 
       if (command.testOnly && !this._settings.bot.testServers) {
         this._client.error(

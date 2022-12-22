@@ -40,7 +40,6 @@ export interface Command {
   names?: string[] | string;
   type: CommandType;
   description: string;
-  usage?: string;
   permission?: PermissionsString;
   testOnly?: boolean;
   options?: ApplicationCommandOptionData[];

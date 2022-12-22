@@ -10,6 +10,10 @@ import {
   Client,
   PermissionsString,
   Collection,
+  GuildMember,
+  Guild,
+  ChannelType,
+  User,
 } from "discord.js";
 import mongoose from "mongoose";
 import DartCommands from "./src";
@@ -28,6 +32,10 @@ export interface CommandOptions {
   args: (string | number | boolean | undefined)[] | undefined;
   instance: DartCommands;
   client: Client<boolean>;
+  member: GuildMember;
+  guild: Guild;
+  channel: ChannelType;
+  author: User;
 }
 
 export enum CommandType {

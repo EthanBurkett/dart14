@@ -61,6 +61,10 @@ export default class CommandHandler {
       args: interaction.options.data.map((option) => option.value),
       instance: this._instance,
       client: this._client,
+      member: member!,
+      guild: interaction.guild!,
+      channel: interaction.channel!,
+      author: interaction.user,
     });
 
     if (execute instanceof Promise) execute = await execute;
@@ -117,6 +121,10 @@ export default class CommandHandler {
       interaction: null,
       instance: this._instance,
       message,
+      member: message.member!,
+      guild: message.guild!,
+      channel: message.channel!,
+      author: message.member!.user,
     });
 
     if (execute instanceof Promise) execute = await execute;

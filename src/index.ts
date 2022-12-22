@@ -1,10 +1,15 @@
 import {
   ApplicationCommandData,
+  ChannelType,
   Client,
   Collection,
   EmbedBuilder,
+  Guild,
+  GuildMember,
   PermissionFlags,
   PermissionsString,
+  TextBasedChannel,
+  User,
 } from "discord.js";
 import CommandLoader from "./Handlers/commandLoader";
 import chalk from "chalk";
@@ -134,6 +139,10 @@ export interface CommandOptions {
   args: (string | number | boolean | undefined)[] | undefined;
   instance: DartCommands;
   client: Client<boolean>;
+  member: GuildMember;
+  guild: Guild;
+  channel: TextBasedChannel | null;
+  author: User;
 }
 
 export enum CommandType {
